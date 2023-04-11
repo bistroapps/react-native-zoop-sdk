@@ -1,0 +1,32 @@
+{
+  "name": "react-native-zoop-sdk",
+  "version": "1.0.0",
+  "description": "React Native lib to handle Zoop SDK integration",
+  "react-native": "js/index",
+  "source": "js/index",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bistroapps/react-native-zoop-sdk.git"
+  },
+  "keywords": [
+    "react-native",
+    "zoop",
+    "sdk",
+    "android",
+    "integration"
+  ],
+  "author": "heldersi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bistroapps/react-native-zoop-sdk/issues"
+  },
+  "homepage": "https://github.com/bistroapps/react-native-zoop-sdk#readme",
+  "devDependencies": {},
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
+  }
+}

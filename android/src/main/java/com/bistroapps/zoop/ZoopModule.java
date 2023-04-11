@@ -1,4 +1,4 @@
-package com.bistroapps.reactnative.zoop;
+package com.bistroapps.zoop;
 
 import android.app.Activity;
 import android.content.ComponentName;
@@ -38,12 +38,16 @@ import com.zoop.zoopandroidsdk.terminal.ExtraCardInformationListener;
 import com.zoop.zoopandroidsdk.terminal.TerminalMessageType;
 import com.zoop.zoopandroidsdk.terminal.TerminalPaymentListener;
 
+
+import com.bistroapps.zoop.ReactNativeZoopSpec;
+
+
 /**
  * Created by heldersi on 10/4/23.
  */
-public class ZoopModule extends ReactContextBaseJavaModule {
+public class ZoopModule extends ReactNativeZoopSpec {
 
-    private static String DEBUG_TAG = ZoopModule.class.getName();
+    public static String NAME = "ReactNativeZoop";
 
     private Promise paymentPromise;
     private Promise scanPromise;
@@ -58,7 +62,7 @@ public class ZoopModule extends ReactContextBaseJavaModule {
 
     @Override
     public String getName() {
-        return "ReactNativeZoop";
+        return NAME;
     }
 
     public String makeJSONResponse(String status, String message, String data) {

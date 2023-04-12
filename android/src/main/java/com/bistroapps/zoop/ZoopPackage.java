@@ -1,46 +1,28 @@
 package com.bistroapps.zoop;
-
-import androidx.annotation.Nullable;
-import java.util.HashMap;
-import java.util.Map;
-
+import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
-import com.facebook.react.module.model.ReactModuleInfo;
-import com.facebook.react.module.model.ReactModuleInfoProvider;
-import com.facebook.react.TurboReactPackage;
+import com.facebook.react.uimanager.ViewManager;
 
-/**
- * Created by heldersi on 10/4/23.
- */
-public class ZoopPackage implements TurboReactPackage{
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
-  @Nullable
-  @Override
-  public NativeModule getModule(String name, ReactApplicationContext reactContext) {
-    if (name.equals(ZoopModule.NAME)) {
-        return new ZoopModule(reactContext);
-    } else {
-        return null;
-    }
-  }
+public class ZoopPackage implements ReactPackage {
 
-  @Override
-  public ReactModuleInfoProvider getReactModuleInfoProvider() {
-      return () -> {
-          final Map<String, ReactModuleInfo> moduleInfos = new HashMap<>();
-          moduleInfos.put(
-                  ZoopModule.NAME,
-                  new ReactModuleInfo(
-                          ZoopModule.NAME,
-                          ZoopModule.NAME,
-                          false, // canOverrideExistingModule
-                          false, // needsEagerInit
-                          true, // hasConstants
-                          false, // isCxxModule
-                          true // isTurboModule
-          ));
-          return moduleInfos;
-      };
-  }
+   @Override
+   public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
+       return Collections.emptyList();
+   }
+
+   @Override
+   public List<NativeModule> createNativeModules(
+           ReactApplicationContext reactContext) {
+       List<NativeModule> modules = new ArrayList<>();
+
+       modules.add(new ZoopModule(reactContext));
+
+       return modules;
+   }
+
 }

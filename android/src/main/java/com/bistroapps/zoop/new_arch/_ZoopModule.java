@@ -15,8 +15,6 @@ import android.app.AlertDialog;
 import android.widget.Toast;
 
 import java.util.List;
-import java.util.Map;
-import java.util.HashMap;
 
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ActivityEventListener;
@@ -27,10 +25,6 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.WritableMap;
-
-import com.facebook.react.bridge.NativeModule;
-import com.facebook.react.bridge.ReactContext;
-
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -44,10 +38,14 @@ import com.zoop.zoopandroidsdk.terminal.ExtraCardInformationListener;
 import com.zoop.zoopandroidsdk.terminal.TerminalMessageType;
 import com.zoop.zoopandroidsdk.terminal.TerminalPaymentListener;
 
+
+import com.bistroapps.zoop.ReactNativeZoopSpec;
+
+
 /**
  * Created by heldersi on 10/4/23.
  */
-public class ZoopModule extends ReactContextBaseJavaModule {
+public class ZoopModule extends ReactNativeZoopSpec {
 
     public static String NAME = "ReactNativeZoop";
 

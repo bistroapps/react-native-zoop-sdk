@@ -1,14 +1,16 @@
+group 'bcom.bistroapps.zoop'
+version '1.0'
 
 buildscript {
     repositories {
         google()
         mavenCentral()
-        flatDir {
-            dirs 'libs'
-        }
+        // flatDir {
+        //     dirs 'libs'
+        // }
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:4.2.1")
+        classpath("com.android.tools.build:gradle:7.2.0")
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -32,6 +34,11 @@ android {
     minSdkVersion getExtOrIntegerDefault('minSdkVersion')
     targetSdkVersion getExtOrIntegerDefault('targetSdkVersion')
   }
+  sourceSets {
+      main {
+          jniLibs.srcDirs = ['libs']
+      }
+  }
 }
 
 repositories {
@@ -41,14 +48,13 @@ repositories {
     }
     google()
     mavenCentral()
-    flatDir {
-        dirs 'libs'
-    }
+    // flatDir {
+    //     dirs 'libs'
+    // }
 }
 
 dependencies {
-    implementation(name: 'zoop_emv_android_sdk_2.3.0_prod', ext: 'aar')
-
+    implementation (files("libs/zoop_emv_android_sdk_2.3.0_prod.aar"))
     implementation "androidx.multidex:multidex:2.0.1"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.10"
     implementation 'androidx.appcompat:appcompat:1.6.1'

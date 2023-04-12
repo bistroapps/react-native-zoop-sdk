@@ -14,20 +14,24 @@ buildscript {
     }
 }
 
+def getExtOrDefault(name) {
+  return rootProject.ext.has(name) ? rootProject.ext.get(name) : project.properties['ReactNativeZoop_' + name]
+}
+
+def getExtOrIntegerDefault(name) {
+  return rootProject.ext.has(name) ? rootProject.ext.get(name) : (project.properties['ReactNativeZoop_' + name]).toInteger()
+}
+
 apply plugin: 'com.android.library'
 
 android {
-    buildToolsVersion = "31.0.0"
-    minSdkVersion = 21
-    compileSdkVersion = 31
-    targetSdkVersion = 31
-    if (System.properties['os.arch'] == "aarch64") {
-        // For M1 Users we need to use the NDK 24 which added support for aarch64
-        ndkVersion = "24.0.8215888"
-    } else {
-        // Otherwise we default to the side-by-side NDK version from AGP.
-        ndkVersion = "21.4.7075529"
-}
+  compileSdkVersion getExtOrIntegerDefault('compileSdkVersion')
+  buildToolsVersion getExtOrDefault('buildToolsVersion')
+
+  defaultConfig {
+    minSdkVersion getExtOrIntegerDefault('minSdkVersion')
+    targetSdkVersion getExtOrIntegerDefault('targetSdkVersion')
+  }
 }
 
 repositories {
@@ -62,5 +66,4 @@ dependencies {
     implementation 'com.google.android.gms:play-services-location:21.0.1'
     
     implementation 'com.facebook.react:react-native:+'
-    //api 'com.facebook.react:react-native:+'
 }
